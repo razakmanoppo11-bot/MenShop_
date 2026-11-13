@@ -1,0 +1,426 @@
+/* ======================================================================
+ *  style.css — TAMPILAN MEN'SHOP
+ *  Urutan: variabel warna → dasar → header → produk → tombol → kotak/form → tabel
+ *          → pembayaran → gambar → TEMA TIGA PINTU MASUK (pembeli / admin / super admin)
+ *  Warna utama tiap pintu masuk diatur lewat variabel --o dan --o2 (lihat bagian TEMA).
+ * ====================================================================== */
+
+
+/* ---------- VARIABEL WARNA — ubah warna utama toko di sini (--o = oranye pembeli) ---------- */
+:root {
+  --o:#ee4d2d;
+  --o2:#f53d2d;
+  --bg:#f5f5f5;
+  --t:#222;
+  --m:#757575;
+}
+
+/* ---------- DASAR HALAMAN ---------- */
+* {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+  font-family:system-ui,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--t);
+}
+a {
+  color:inherit;
+  text-decoration:none;
+}
+.w {
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 12px;
+}
+
+/* ---------- KEPALA HALAMAN: logo, pencarian, menu ---------- */
+header {
+  background:linear-gradient(var(--o2),var(--o));
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.bar {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:10px 12px;
+}
+.logo {
+  font-size:24px;
+  font-weight:800;
+}
+.search {
+  flex:1;
+  min-width:260px;
+  display:flex;
+  background:#fff;
+  border-radius:3px;
+  overflow:hidden;
+}
+.search select, .search input {
+  border:0;
+  padding:10px;
+  font-size:14px;
+  outline:0;
+  margin:0;
+  width:auto;
+}
+.search input {
+  flex:1;
+  min-width:0;
+}
+.search select {
+  background:#f3f3f3;
+  max-width:150px;
+}
+.search button {
+  background:var(--o);
+  color:#fff;
+  border:0;
+  padding:0 18px;
+  cursor:pointer;
+  margin:3px;
+  border-radius:2px;
+}
+nav {
+  display:flex;
+  gap:14px;
+  align-items:center;
+  font-size:14px;
+  flex-wrap:wrap;
+}
+nav a:hover {
+  text-decoration:underline;
+}
+
+/* ---------- KATEGORI & KARTU PRODUK ---------- */
+.cats {
+  background:#fff;
+  box-shadow:0 1px 2px #0002;
+  margin-bottom:12px;
+}
+.cats .w {
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:10px 12px;
+}
+.chip {
+  white-space:nowrap;
+  border:1px solid #ddd;
+  border-radius:20px;
+  padding:6px 14px;
+  font-size:13px;
+  background:#fff;
+}
+.chip.on, .chip:hover {
+  border-color:var(--o);
+  color:var(--o);
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:10px;
+}
+.card {
+  background:#fff;
+  border-radius:3px;
+  overflow:hidden;
+  box-shadow:0 1px 2px #0001;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover {
+  box-shadow:0 3px 10px #0003;
+}
+.pic {
+  height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:64px;
+  background:#fff3f0;
+}
+.card .b {
+  padding:8px 10px;
+  flex:1;
+}
+.card .n {
+  font-size:14px;
+  height:38px;
+  overflow:hidden;
+}
+.price {
+  color:var(--o);
+  font-weight:700;
+  margin:6px 0;
+}
+.sm {
+  color:var(--m);
+  font-size:12px;
+}
+header .sm {
+  color:#fff;
+}
+
+/* ---------- TOMBOL ---------- */
+.btn {
+  background:var(--o);
+  color:#fff;
+  border:0;
+  padding:9px 14px;
+  border-radius:3px;
+  cursor:pointer;
+  font-size:14px;
+  display:inline-block;
+}
+.btn:hover {
+  background:var(--o2);
+}
+.btn:disabled {
+  background:#ccc;
+}
+.btn.g {
+  background:#fff;
+  color:var(--o);
+  border:1px solid var(--o);
+}
+.btn.r {
+  background:#c0392b;
+}
+
+/* ---------- KOTAK, FORM LOGIN, TAB, PESAN ---------- */
+.box {
+  background:#fff;
+  border-radius:4px;
+  padding:18px;
+  margin:12px auto;
+  max-width:1180px;
+  box-shadow:0 1px 2px #0001;
+}
+.auth {
+  max-width:400px;
+  margin:40px auto;
+}
+.auth h2 {
+  margin-top:0;
+  color:var(--o);
+}
+input, select, textarea {
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:3px;
+  font:inherit;
+  margin:4px 0 10px;
+}
+.tabs {
+  display:flex;
+  gap:6px;
+  margin-bottom:14px;
+}
+.tabs a {
+  flex:1;
+  text-align:center;
+  padding:8px;
+  border:1px solid #ddd;
+  border-radius:3px;
+  font-size:13px;
+}
+.tabs a.on {
+  background:var(--o);
+  color:#fff;
+  border-color:var(--o);
+}
+.msg {
+  padding:10px 14px;
+  border-radius:3px;
+  margin:10px 0;
+}
+.ok {
+  background:#e6f7ea;
+  color:#1b7a34;
+}
+.err {
+  background:#fdeaea;
+  color:#b3261e;
+}
+
+/* ---------- TABEL & FORM DI DALAM TABEL ---------- */
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+th, td {
+  padding:8px;
+  border-bottom:1px solid #eee;
+  text-align:left;
+  vertical-align:top;
+}
+td select, td input {
+  margin:0;
+  padding:6px;
+  width:auto;
+}
+.sc {
+  overflow-x:auto;
+}
+.fg {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:8px;
+}
+.fg * {
+  margin:0;
+}
+
+/* ---------- PEMBAYARAN, QR, KOLOM SANDI ---------- */
+.pay {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #ddd;
+  border-radius:4px;
+  padding:10px;
+  margin:6px 0;
+  cursor:pointer;
+}
+.pay input {
+  width:auto;
+  margin:0;
+}
+.pay select {
+  width:auto;
+  margin:0;
+}
+.tot {
+  font-size:20px;
+  color:var(--o);
+  font-weight:700;
+}
+.badge {
+  background:#fff;
+  color:var(--o);
+  border-radius:10px;
+  padding:0 7px;
+  font-size:12px;
+  font-weight:700;
+}
+.qr {
+  width:180px;
+  height:180px;
+  margin:10px auto;
+  background:repeating-conic-gradient(#222 0 25%,#fff 0 50%) 0 0/24px 24px;
+  border:8px solid #fff;
+  outline:1px solid #ccc;
+}
+.pwbox {
+  position:relative;
+  margin:4px 0 10px;
+}
+.pwbox input {
+  margin:0;
+  padding-right:46px;
+}
+.pweye {
+  position:absolute;
+  right:4px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-size:18px;
+  padding:4px 8px;
+  line-height:1;
+}
+.pweye:hover {
+  background:#0000000d;
+  border-radius:3px;
+}
+.fg .pwbox, td .pwbox {
+  margin:0;
+}
+
+/* ---------- GAMBAR PRODUK ---------- */
+.pic {
+  overflow:hidden;
+}
+.pic img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.th {
+  width:36px;
+  height:36px;
+  object-fit:cover;
+  border-radius:4px;
+  vertical-align:middle;
+  margin-right:6px;
+  border:1px solid #eee;
+}
+
+/* ===== Tiga pintu masuk dengan tema berbeda: pembeli (oranye), admin (hijau tosca), super admin (ungu) ===== */
+
+body.area-admin {
+  --o:#0f766e;
+  --o2:#14b8a6;
+}
+body.area-superadmin {
+  --o:#5b21b6;
+  --o2:#7c3aed;
+}
+body.area-user.guest {
+  background:linear-gradient(#fff3f0,#f5f5f5 60%);
+}
+body.area-admin.guest {
+  background:linear-gradient(135deg,#ccfbf1,#f0fdfa 60%);
+}
+body.area-superadmin.guest {
+  background:radial-gradient(circle at 50% 0,#4c1d95,#1e1b4b 55%,#0f0a1f);
+  min-height:100vh;
+}
+body.area-superadmin.guest #msg {
+  position:relative;
+}
+.lg-ikon {
+  font-size:46px;
+  text-align:center;
+  line-height:1.1;
+}
+.box.auth[class*="login-"] h2 {
+  text-align:center;
+  margin:6px 0 2px;
+}
+.lg-sub {
+  text-align:center;
+  margin:0 0 16px;
+}
+.login-user {
+  border-top:5px solid var(--o);
+}
+.login-admin {
+  border-top:5px solid var(--o);
+  box-shadow:0 6px 24px #0f766e33;
+  max-width:420px;
+}
+.login-superadmin {
+  border:1px solid #7c3aed55;
+  border-top:5px solid var(--o);
+  box-shadow:0 10px 40px #7c3aed66;
+  max-width:440px;
+}
+.lg-note {
+  background:#f4f4f5;
+  border-radius:4px;
+  padding:8px 10px;
+  color:#555;
+}
